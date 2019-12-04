@@ -6,8 +6,6 @@ include "../../Impl/Lock/PacketParsing.i.dfy"
 include "../../Impl/Lock/UdpLock.i.dfy"
 include "../../Impl/Lock/Host.i.dfy"
 include "AbstractService.s.dfy"
-include "../../Protocol/Lock/RefinementProof/Refinement.i.dfy"
-include "../../Protocol/Lock/RefinementProof/RefinementProof.i.dfy"
 include "Marshall.i.dfy"
 
 module Main_i refines Main_s {
@@ -18,8 +16,6 @@ module Main_i refines Main_s {
     import opened UdpLock_i
     import opened Host_i
     import opened AS_s = AbstractServiceLock_s
-    import opened Refinement_i
-    import opened RefinementProof_i
     import opened MarshallProof_i
 
     lemma RefinementProof(config:ConcreteConfiguration, db:seq<DS_State>) returns (sb:seq<ServiceState>)
